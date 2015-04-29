@@ -134,7 +134,7 @@ class BatchConnectorFSM[Key, Msg, Out:ClassTag, BatchOut](props: AkkaBatchConsum
       stay using outstanding -1
   }
 
-  when(WaitingToReceiveBatchProcessed, stateTimeout = 1 seconds){
+  when(WaitingToReceiveBatchProcessed, stateTimeout = props.processTimeout.duration){
     case Event(StateTimeout, outstanding) =>
       log.warning("state={} msg={}  streams={}", WaitingToReceiveBatchProcessed, StateTimeout, streams)
       stay()

@@ -5,3 +5,12 @@ target
 project/target
 kafka-install
 *.log
+
+
+### Eclipse
+.settings/
+.loadpath
+.classpath
+.project
+.history
+.cache
